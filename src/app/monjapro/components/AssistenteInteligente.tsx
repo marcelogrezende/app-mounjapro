@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
 import { MessageCircle, Send, Bot, User } from "lucide-react"
 
@@ -158,7 +157,7 @@ export default function AssistenteInteligente() {
         </div>
 
         {/* Messages */}
-        <ScrollArea className="flex-1 p-4">
+        <div className="flex-1 overflow-y-auto p-4">
           <div className="space-y-4">
             {messages.map((message) => (
               <div
@@ -191,7 +190,7 @@ export default function AssistenteInteligente() {
               </div>
             ))}
           </div>
-        </ScrollArea>
+        </div>
 
         {/* Input */}
         <div className="p-4 border-t bg-white dark:bg-gray-800">

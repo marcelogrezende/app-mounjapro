@@ -196,6 +196,19 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
   
+  // Configuração de webpack para suprimir erros de HMR
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    return config;
+  },
+  
   // Headers CORS para permitir acesso da plataforma Lasy
   async headers() {
     return [
